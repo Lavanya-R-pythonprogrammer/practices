@@ -14,4 +14,3 @@ engine.setProperty('rate',140)
 engine.setProperty('volume',0.7)
 engine.say(lines)
 engine.runAndWait()
-
