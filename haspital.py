@@ -176,10 +176,10 @@ class Hospital:
         btn4=Button(Buttonframe,command=self.delete1,text="Delete",bg="green",fg="white" ,font=("arial",12,"bold"),width=23,padx=2,pady=6)
         btn4.grid(row=0,column=3)
 
-        btn5=Button(Buttonframe,text="clear",bg="green",fg="white" ,font=("arial",12,"bold"),width=23,padx=2,pady=6)
+        btn5=Button(Buttonframe,command=self.clear,text="clear",bg="green",fg="white" ,font=("arial",12,"bold"),width=23,padx=2,pady=6)
         btn5.grid(row=0,column=4)
 
-        btn6=Button(Buttonframe,text="Exit",bg="green",fg="white" ,font=("arial",12,"bold"),width=23,padx=2,pady=6)
+        btn6=Button(Buttonframe,command=self.iexit,text="Exit",bg="green",fg="white" ,font=("arial",12,"bold"),width=23,padx=2,pady=6)
         btn6.grid(row=0,column=5)
 
         # table
@@ -293,17 +293,6 @@ class Hospital:
 
 
 
-
-
-
-
-
-
-
-
-
-
-    
     def fetch_data(self):
         conn=mysql.connector.connect(host="localhost",username="root",password="root",database="dakshika") 
         my_cursor=conn.cursor()
@@ -369,53 +358,38 @@ class Hospital:
         conn.commit()
         conn.close()
         self.fetch_data()
-        messagebox.showinfo("deleted data")                                                                                                   
+        messagebox.showinfo("deleted data")  
+
+    def clear(self):
+        self.Nameoftablets.set("")
+        self.ref.set("")
+        self.ref.set(""),
+        self.Dose.set("")
+        self.Dose.set("")
+        self.Numberoftablets.set("")
+        self.lot.set("")
+        self.issuedate.set("")
+        self.expdate.set("")
+        self.dailydose.set("")
+        self.sideeffects.set("")
+        self.furtherinformation.set("")
+        self.drivingusingmachine.set("")
+        self.strorageadivce.set("")
+        self.medication.set("")
+        self.patineid.set("")
+        self.nhsnumber.set("")
+        self.patientname.set("")
+        self.dateofbrith.set("")
+        self.patientaddress.set("")
+        self.txtPrescription.delete("1.0",END)
+
+    def iexit(self):
+        iexit=messagebox.askyesno("Hospital management system ","confirm you wnat to exit")
+        if iexit>0:
+            root.destroy()
+            return
+
                                           
-                                                                                                           
-                                                                                                           
-                                                                                                           
-                                                                                                           
-                                                                                                           
-                                                                                                           
-                                                                                                           
-                                                                                                           
-                                                                                                           
-                                                                                                           
-                                                                                                           
-                                        
-
-                 
-
-
-
-
-
-
-
-
-                                     
-                                     
-                                     
-                                     
-                                     
-                                     
-                                     
-                                
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
 
 root=Tk()
 ob=Hospital(root)
